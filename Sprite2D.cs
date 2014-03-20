@@ -15,10 +15,15 @@ namespace XNAHelper
 { 
 	public class Sprite2D
 	{
-		public Texture2D Texture;
+        public Texture2D Texture
+        {
+            get;
+            private set;
+        }
 		public Color color;
 		public float Width;
 		public float Height;
+        public float Scale;
 		public Vector2 Position;
 		public Vector2 Direction;
 		public float Speed;
@@ -26,13 +31,19 @@ namespace XNAHelper
 		{
 			get
 			{
-
+                return new Rectangle((int)Position.x, (int)Position.y, (int)Width, (int)Height);
 			}
 			set
 			{
-
+                Position.X = value.X;
+                Position.Y = value.Y;
+                Width = value.Width;
+                Height = value.Height;
 			}
 		}
+        public float RotationAngle;
+        public Vector2 RotationOrigin;
+        public SpriteEffects spriteEffect;
 
 		public Sprite2D(Texture2D texture, Vector2 position, Color color)
 		{
@@ -44,5 +55,28 @@ namespace XNAHelper
 			this.Speed = 0;
 			this.Direction = Vector2.Zero;
 		}
+
+        public void Move()
+        {
+            Direction.Normalize();
+            Position += Direction * Speed;
+        }
+
+        public bool CollideWalls(float WindowWidth, float WindowHeight)
+        {
+            return Position.X <= 0 || Position.Y <= 0 || Position.X + Width >= WindowWidth || Position.Y + Height >= WindowHeight;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(this.Texture,
+                this.Rect,
+                null,
+                this.color,
+                this.RotationAngle,
+                this.RotationOrigin,
+                spriteEffect,
+                0);
+        }
 	}
 }

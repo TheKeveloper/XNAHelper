@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAHelper", "XNAHelper.csproj", "{F9619A8E-359D-4B8E-AA89-C4BB0807878B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9619A8E-359D-4B8E-AA89-C4BB0807878B}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{F9619A8E-359D-4B8E-AA89-C4BB0807878B}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{F9619A8E-359D-4B8E-AA89-C4BB0807878B}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{F9619A8E-359D-4B8E-AA89-C4BB0807878B}.Release|Windows Phone.Build.0 = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
