@@ -25,13 +25,21 @@ namespace XNAHelper
 		public float Height;
         public float Scale;
 		public Vector2 Position;
-		public Vector2 Direction;
+        public Vector2 Direction
+        {
+            get;
+            set
+            {
+                Direction = value;
+                Direction.Normalize();
+            }
+        }
 		public float Speed;
 		public Rectangle Rect
 		{
 			get
 			{
-                return new Rectangle((int)Position.x, (int)Position.y, (int)Width, (int)Height);
+                return new Rectangle((int)Position.X, (int)Position.Y, (int)Width, (int)Height);
 			}
 			set
 			{
@@ -57,14 +65,23 @@ namespace XNAHelper
 		}
 
         public void Move()
-        {
-            Direction.Normalize();
+        
             Position += Direction * Speed;
         }
 
         public bool CollideWalls(float WindowWidth, float WindowHeight)
         {
             return Position.X <= 0 || Position.Y <= 0 || Position.X + Width >= WindowWidth || Position.Y + Height >= WindowHeight;
+        }
+
+        public bool Intersects(Sprite2D sprite)
+        {
+            return this.Rect.Intersects(sprite.Rect);
+        }
+
+        public bool Contains(Vector2 point)
+        {
+            return this.Rect.Contains(new Point((int)point.X, (int)point.Y));
         }
 
         public void Draw(SpriteBatch spriteBatch)
