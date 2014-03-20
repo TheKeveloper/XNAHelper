@@ -27,7 +27,7 @@ namespace XNAHelper
 		public Vector2 Position;
         public Vector2 Direction
         {
-            get;
+            get { return Direction; }
             set
             {
                 Direction = value;
@@ -65,7 +65,7 @@ namespace XNAHelper
 		}
 
         public void Move()
-        
+        {
             Position += Direction * Speed;
         }
 

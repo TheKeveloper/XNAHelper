@@ -49,7 +49,7 @@ namespace XNAHelper
                 {
                     direction.Normalize();
                 }
-                catch (Exception e)
+                catch 
                 {
                     direction = Vector2.Zero;
                 }
