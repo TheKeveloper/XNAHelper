@@ -84,6 +84,17 @@ namespace XNAHelper
             return this.Rect.Contains(new Point((int)point.X, (int)point.Y));
         }
 
+        public bool Tapped(TouchHelper tHelper)
+        {
+            if (tHelper.curTouchState == TouchLocationState.Released && (tHelper.prevTouchState == TouchLocationState.Pressed || tHelper.prevTouchState == TouchLocationState.Moved)
+                && this.Contains(tHelper.curTouchPoint))
+            {
+                tHelper.prevTouchState = tHelper.curTouchState;
+                return true;
+            }
+            return false;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this.Texture,
