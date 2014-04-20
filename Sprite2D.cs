@@ -25,6 +25,7 @@ namespace XNAHelper
 		public float Height;
         public float Scale;
 		public Vector2 Position;
+        public String name;
         public Vector2 Direction
         {
             get { return Direction; }
@@ -52,6 +53,7 @@ namespace XNAHelper
         public float RotationAngle;
         public Vector2 RotationOrigin;
         public SpriteEffects spriteEffect;
+        public bool Visible;
 
 		public Sprite2D(Texture2D texture, Vector2 position, Color color)
 		{
@@ -62,6 +64,7 @@ namespace XNAHelper
 			this.Position = position;
 			this.Speed = 0;
 			this.Direction = Vector2.Zero;
+            this.Visible = true;
 		}
 
         public void Move()
@@ -97,14 +100,17 @@ namespace XNAHelper
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this.Texture,
-                this.Rect,
-                null,
-                this.color,
-                this.RotationAngle,
-                this.RotationOrigin,
-                spriteEffect,
-                0);
+            if (Visible)
+            {
+                spriteBatch.Draw(this.Texture,
+                    this.Rect,
+                    null,
+                    this.color,
+                    this.RotationAngle,
+                    this.RotationOrigin,
+                    spriteEffect,
+                    0);
+            }
         }
 	}
 }

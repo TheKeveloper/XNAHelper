@@ -8,7 +8,7 @@ using System.Text;
 
 namespace XNAHelper
 {
-    class TouchHelper
+    public class TouchHelper
     {
         TouchCollection touchCollection;
         public TouchLocation Touch;
@@ -16,7 +16,7 @@ namespace XNAHelper
         public TouchLocationState curTouchState;
         public Vector2 curTouchPoint;
         private Vector2 prevTouchPoint;
-        private bool FlickActive;
+        public bool FlickActive;
 
         public TouchHelper()
         {
@@ -34,7 +34,7 @@ namespace XNAHelper
 
         public Vector2 GetFlick()
         {
-            Vector2 direction = new Vector2();
+            Vector2 direction = new Vector2(0, 0);
             if(curTouchState == TouchLocationState.Pressed)
             {
                 FlickActive = true;

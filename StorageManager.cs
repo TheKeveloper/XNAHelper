@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace XNAHelper
 {
-    class StorageManager
+    public class StorageManager
     {
         public IsolatedStorageFile Storage;
 
