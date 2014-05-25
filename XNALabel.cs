@@ -19,6 +19,19 @@ namespace XNAHelper
         public int ZIndex;
         public Color TextColor;
         public float Scale;
+        public float Width { get { return Font.MeasureString(Text).X; } }
+        public float Height { get { return Font.MeasureString(Text).Y; } }
+        public Vector2 Center
+        {
+            get
+            {
+                return new Vector2(Position.X + (Width / 2), Position.Y + (Height / 2));
+            }
+            set
+            {
+                Position = new Vector2(value.X - (Width / 2), value.Y - (Height / 2));
+            }
+        }
 
         public XNALabel()
         {

@@ -23,12 +23,21 @@ namespace XNAHelper
 		public Color color;
 		public float Width;
 		public float Height;
-        public float Scale;
+        public float Scale
+        {
+            get;
+            set
+            {
+                Width = Texture.Width * Scale;
+                Height = Texture.Height * Scale;
+                Scale = value;
+            }
+        }
 		public Vector2 Position;
         public String name;
         public Vector2 Direction
         {
-            get { return Direction; }
+            get;
             set
             {
                 Direction = value;
@@ -54,6 +63,17 @@ namespace XNAHelper
         public Vector2 RotationOrigin;
         public SpriteEffects spriteEffect;
         public bool Visible;
+        public Vector2 Center
+        {
+            get
+            {
+                return new Vector2(Position.X + (Width / 2), Position.Y + (Height / 2));
+            }
+            set
+            {
+                Position = new Vector2(value.X - (Width / 2), value.Y - (Height / 2));
+            }
+        }
 
 		public Sprite2D(Texture2D texture, Vector2 position, Color color)
 		{
